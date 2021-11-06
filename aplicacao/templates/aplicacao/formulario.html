@@ -1,0 +1,25 @@
+{% extends "aplicacao/base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+<h1> Formulario Django </h1>
+<form action = "." method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Enviar formulario">
+</form>
+   
+<ul>
+    {% for pessoa in pessoas %}
+    <li>{{ pessoa.id}} - {{ pessoa }}
+        <a href="{% url 'aplicacao:update_pessoa' pessoa_id=pessoa.id %}">Editar</a>
+        <a href="{% url 'aplicacao:delete_pessoa' pessoa_id=pessoa.id %}">Deletar</a>
+    </li>
+    {% empty %}    
+        <li>Nenhum Registro encontrado</li>
+    {% endfor %}    
+</ul>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href = "{% static  'css/aplicacao.css' %}" rel = "stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Minha Aplicacao</h1>
+    </header>
+
+    <main>
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+</body>
+
+</html>
